@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Bootstrap Template</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+   
+    h5{
+        color:white;
+    }
+    .card{
+      height: 300px;
+      width:300px;
+      margin-left: 80px;
+      background-size:contain;
+      background-repeat:no-repeat;
+      border-radius: 20px;
+
+    }
+    body{
+      background-color:lightgreen;
+    }
+    /* Custom CSS for the glowing effect */
+
+    .glow {
+      animation: glow-animation 1s infinite alternate;
+    }
+
+    @keyframes glow-animation {
+      from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #00c9ff, 0 0 30px #00c9ff, 0 0 40px #00c9ff, 0 0 50px #00c9ff, 0 0 60px #00c9ff, 0 0 70px #00c9ff;
+      }
+      to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #00c9ff, 0 0 40px #00c9ff, 0 0 50px #00c9ff, 0 0 60px #00c9ff, 0 0 70px #00c9ff, 0 0 80px #00c9ff;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="container-fluid" style="background: linear-gradient(to top, lightseagreen, lightgreen); color: #fff; text-align: center;">
+    <div class="row align-items-center" style="height: 300px;">
+      <div class="col">
+        <br>
+        <h1 class="glow">Ready to Join?</h1><br>
+        <h2 class="glow"> The Padawan Membership</h2>
+      </div>
+    </div>
+  </header>
+
+  <!-- Body Container -->
+  <div class="container-fluid" style="height: 600px; background-image: url('<%= asset_path('padawan.JPG') %>');background-size:contain;">
+
+    <div class="row">
+      <div class="col">
+        <!-- Content Goes Here -->
+      </div>
+    </div>
+  </div>
+
+  <div class="container" >
+    <div class="row">
+      <div class="col-12 text-center mb-4">
+        <br>
+        <h3 class="glow" style="color:white"> Exclusive Perks</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-6 mb-4 mt-4">
+        <div class="card" style="background-image: url('<%= asset_path('perk1.jpg') %>')">
+          <div class="card-body">
+            Card 1
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-6 mb-4 mt-4">
+         <div class="card" style="background-image: url('<%= asset_path('perk2.JPG') %>')">
+          <div class="card-body">
+            Card 2
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-6 mb-4">
+        <div class="card" style="background-image: url('<%= asset_path('perk3.jpg') %>')">
+          <div class="card-body">
+            Card 3
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-6 mb-4">
+         <div class="card" style="background-image: url('<%= asset_path('perk4.jpg') %>')">
+          <div class="card-body">
+            Card 4
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   <div class="container-fluid text-center" style="height: 300px; margin-top:40px">
+    <div class="row">
+      <div class="col">
+    <h1>Membership Sign-up</h1>
+<%= form_with(model: current_user, url: membership_signup_path, method: :patch, data: { turbo: false }) do |form| %>
+  <div class="field">
+    <%= form.label :membership_tier, "Choose your membership tier:" %>
+    <%= form.select :membership_tier, [['Apprentice', 'apprentice'],['Padawan', 'padawan'], ['Jedi', 'jedi']], prompt: "Select Membership Tier" %>
+  </div>
+  <div class="field">
+    <%= form.label :has_membership, "Sign me up for membership!" %>
+    <%= form.check_box :has_membership %>
+  </div>
+  <div class="actions">
+    <%= form.submit "Submit" %>
+  </div>
+<% end %>
+
+      </div>
+    </div>
+  </div>
+
+
+  
+</body>
+</html>

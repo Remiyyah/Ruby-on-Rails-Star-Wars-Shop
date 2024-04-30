@@ -1,0 +1,77 @@
+
+<html>
+
+    <head>
+        <style>
+           
+
+.review-container {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}
+
+.review-rating {
+  font-weight: bold;
+}
+
+.review-comment {
+  color: #555;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+/* CSS for the "Create New Review" button */
+.create-review-button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+}
+
+.create-review-button:hover {
+  background-color: #45a049; /* Darker green */
+}
+                
+
+        </style>
+    </head>
+    <body>
+
+        <h1>Reviews for <%= @item.name %></h1> 
+        <%= link_to "Create New Review", new_item_review_path(@item), class: "create-review-button" %>
+
+<% if @reviews.present? %>
+  <% @reviews.each do |review| %>
+    <div class="review-container">
+      <p class="review-rating">Rating: <%= review.rating %></p>
+      <p class="review-comment">Comment: <%= review.comment %></p>
+      <!-- Add other review attributes as needed -->
+      <%= button_to "Delete", item_review_path(@item, review), method: :delete, class: "delete-button", data: { confirm: "Are you sure you want to delete this review?" } %>
+    </div>
+  <% end %>
+<% else %>
+  <p>No reviews found for this item.</p>
+<% end %>
+    </body>
+</html>

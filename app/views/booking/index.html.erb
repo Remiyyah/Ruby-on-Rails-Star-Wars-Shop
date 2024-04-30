@@ -1,0 +1,66 @@
+<html>
+<head>
+  <title>My Bookings</title>
+  <style>
+    /* Custom CSS styles */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .card {
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .card-header {
+      background-color: #f8f9fa;
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .booking-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .booking-item {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1 class="mt-5">My Bookings</h1>
+
+  <% if @bookings.any? %>
+    <ul class="booking-list">
+      <% @bookings.each do |booking| %>
+        <li class="booking-item">
+          <div class="card">
+            <div class="card-header">
+              <h2><%= booking.hologram.actor %></h2>
+            </div>
+            <div class="card-body">
+              <p><strong>Recipient Name:</strong> <%= booking.recipient_name %></p>
+              <p><strong>Recipient Request:</strong> <%= booking.recipient_request %></p>
+              <p><strong>Video Type:</strong> <%= booking.video_type %></p>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No bookings found.</p>
+  <% end %>
+</div>
+
+</body>
+</html>

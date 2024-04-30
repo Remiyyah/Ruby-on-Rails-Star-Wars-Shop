@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<style>
+  .items-container {
+    width: 100%;
+    text-align: left;
+  }
+
+  .item {
+    display: inline-block;
+    width: 250px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    vertical-align: top;
+    text-align: center;
+    background-color: white;
+    height: 350px;
+  }
+
+  .name {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .image img {
+    max-width: 200px;
+    max-height: 200px;
+    vertical-align: center;
+
+  }
+
+  .price {
+    color: green;
+    font-weight: bold;
+  }
+
+  body {
+  background-color: black;
+  }
+
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-toggle-categories {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+
+
+</style>
+
+<div class="items-container">
+  <% @categorys.@items.each do |item| %>
+
+      <div class = "item">
+        <div class = "name"><%= item.name %></div>
+        <div class = "image"><%= image_tag(item.image) %></div>
+        <div class = "price">$<%= item.price %></div>
+        <div class = "view-button"><%= link_to "View Item", item_path(item)%></div>
+      </div>
+
+  <% end %>
+</div>

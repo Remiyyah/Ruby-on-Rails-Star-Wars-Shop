@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+
+.topbar {
+    display: flex;
+    justify-content: flex-start;
+    background-color: #333;
+    padding: 14px 30px;
+}
+
+.topbar .navbar {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Push the navbar to the right */
+}
+
+.topbar .navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.topbar .navbar ul li {
+    margin-right: 20px; /* Adjust spacing between navbar items */
+}
+
+.topbar .navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.topbar .navbar ul li a:hover {
+    color: #ccc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #ae2896, #509bf5);
+  color: white;
+}
+
+
+h1 {
+    font-weight: bold;
+    text-align: left;
+}
+
+  .items-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.item {
+    display: inline-block;
+    width: 350px;
+    margin: 10px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    transition: all 0.3s ease;
+    justify-content: space-between;
+    vertical-align: top;
+}
+
+.item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
+}
+
+.image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.price {
+    color: green;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.btn-primary {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle-categories {
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #333;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; 
+}
+
+.dropdown-toggle-categories:hover {
+    background-color: #555; 
+}
+
+.flex-parent-button {
+    display: flex;
+    align-items: center;
+}
+
+.flex-child-button {
+    margin-right: 10px; 
+}
+
+</style>
+
+<body>
+  <h1> Favorites </h1>
+  <div class="container">
+    <div class="item-details">
+    <% @favorites.each do |favorite| %>
+      <div class="item">
+        <div class="image"><%= image_tag(favorite.item.image) %></div>
+        <div class="price">$<%= favorite.item.price %></div>
+        <div class="flex-parent-button">
+        <div class="flex-child-button view"><%= link_to "View", item_path(favorite.item.id), class: "btn btn-primary"%></div>
+        <div class="flex-child-button cart"><%=button_to "Add to Cart", add_to_cart_item_path(favorite.item.id), method: :post, class: "btn btn-primary"%></div>
+        <div class="flex-child-button cart">
+            <%= button_to "Unfavorite", unfavoriting_item_path(item_id: favorite.item.id), method: :delete, data: {turbo: false}, class: "btn btn-primary" %>
+        </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</body>
+</html>
+
+<p>
+  <%=link_to "Return to Shop", items_path, class: "btn btn-primary"%>
+  <%=link_to "Go to Cart", cart_path, class: "btn btn-primary"%>
+</p>

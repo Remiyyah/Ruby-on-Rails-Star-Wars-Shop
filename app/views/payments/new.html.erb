@@ -1,0 +1,81 @@
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  p {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    margin-bottom: 10px;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+
+  input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Process Payment</h1>
+    <p>Total Cost: <%= @total_cost %></p>
+    <%= form_with model: @payment, url: payments_process_payment_path(cart_id: params[:cart_id]), method: :post do |form| %>
+      <label for="card_name">Card Holder Name</label>
+      <%= form.text_field :card_name, id: "card_name" %>
+
+      <label for="card_number">Card Number</label>
+      <%= form.text_field :card_number, id: "card_number" %>
+
+      <label for="card_expiry">Card Expiry (MM/YY)</label>
+      <%= form.text_field :card_expiry, id: "card_expiry", placeholder: "MM/YY" %>
+
+      <label for="card_cvv">CVV</label>
+      <%= form.text_field :card_cvv, id: "card_cvv" %>
+
+      <%= form.submit "Pay" %>
+    <% end %>
+  </div>
+</body>
+</html>

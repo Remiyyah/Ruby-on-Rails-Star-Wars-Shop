@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html>
+<style>
+
+  .view-button{
+    position: absolute;
+    bottom: 10px;
+    left:50%;
+    transform: translateX(-50%);
+  }
+  
+  .items-container {
+    width: 100%;
+    margin-bottom:260px;
+    text-align: left;
+  }
+
+  .item {
+    display: inline-block;
+    width: 250px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    vertical-align: top;
+    text-align: center;
+    background-color: white;
+    height: 350px;
+    position: relative;
+  }
+
+  .name {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .image img {
+    max-width: 200px;
+    max-height: 200px;
+    vertical-align: center;
+
+  }
+
+  .price {
+    color: green;
+    font-weight: bold;
+    position: absolute;
+    top:80%;
+    left:0;
+    right:0;
+    transform: translateY(-50%);
+  
+
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #ae2896, #509bf5);
+    color: black;
+    padding-bottom:100px;
+    }
+   
+
+ 
+
+  .btn-primary {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-toggle-categories {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+  }
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination > * {
+  padding: 5px 10px;
+  margin: 0 5px;
+  border: 1px solid black;
+  border-radius: 3px;
+  color: black; 
+}
+
+.pagination > .previous,
+.pagination > .next {
+  background-color: #f0f0f0;
+}
+
+.pagination > .disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+</style>
+
+<li class="dropdown">
+  <a class="dropdown-toggle-categories" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Category Filter
+  </a>
+  <div style='text-align:left;padding-left:10px'>
+<%= form_tag(items_path, method: :get) do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search items" %>
+  <%= submit_tag "Search" %>
+<% end %>
+</div>
+
+  <ul class="dropdown-menu">
+  <% @categories.each do |cat| %>
+    <div><%= link_to cat.name, category_path(cat) %></div>
+  <% end %>
+  </ul>
+</li>
+<div class="items-container">
+  <% @items.each do |item| %>
+    <div class="item">
+      <div class="name"><%= item.name %></div>
+      <div class="image"><%= image_tag(item.image) %></div>
+      <div class="price">$<%= item.price %></div>
+      <div class="view-button"><%= link_to "View Item", item_path(item), class: "btn btn-primary" %></div>
+    </div>
+  <% end %>
+  <%= will_paginate @items %>
+</div>
+
+
+
+</html>

@@ -1,0 +1,30 @@
+# == Schema Information
+#
+# Table name: holograms
+#
+#  id                 :bigint           not null, primary key
+#  actor              :string
+#  description        :string
+#  price              :integer
+#  recipients_name    :string
+#  recipients_request :string
+#  video_type         :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
+one:
+  actor: MyString
+  recipient_name: MyString
+  recipient_request: MyString
+  price: 1
+  description: MyString
+  video_type: MyString
+
+two:
+  actor: MyString
+  recipient_name: MyString
+  recipient_request: MyString
+  price: 1
+  description: MyString
+  video_type: MyString

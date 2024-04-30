@@ -1,0 +1,12 @@
+<h1>Reviews for <%= @item.name %></h1>
+<% if @reviews.present? %>
+  <% @reviews.each do |review| %>
+    <div>
+      <p>Rating: <%= review.rating %></p>
+      <p>Comment: <%= review.comment %></p>
+      <!-- Add other review attributes as needed -->
+    </div>
+  <% end %>
+<% else %>
+  <p>No reviews found for this item.</p>
+<% end %>

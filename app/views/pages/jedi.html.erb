@@ -1,0 +1,118 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jumbotron Template</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* Custom styles for this template */
+        .jumbotron {
+            background-color: #f8f9fa;
+            padding: 2rem 1rem;
+            margin-bottom: 2rem;
+            border-radius: 0.5rem;
+        }
+
+        .jumbotron .card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .jumbotron .card-img-top {
+            border-radius: 0.5rem;
+        }
+
+        .jumbotron p {
+            margin-top: 1rem;
+        }
+        body{
+            background-image:linear-gradient(180deg,black,brown);
+            margin-bottom:175px; 
+        }
+
+        ul{
+            list-style-type:none
+        }
+    </style>
+</head>
+<body>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                     <%= image_tag "jedi.JPG", class: "card-img-top", alt: "Image" %>
+                    <div class="card-body">
+                        <h5 class="card-title">Jedi Membership</h5>
+                        <p class="card-text"> Unlock the path to mastery with our premium Jedi membership tier.
+                             </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <%= image_tag "treasure.JPG", class: "card-img-top", alt: "Image" %>
+                    <div class="card-body">
+                        <h5 class="card-title">Jedi Treasure Box</h5>
+                        <p class="card-text"> Available to all premium  members is the Jedi treasure box filled with
+                            exclusive goodies!
+                           </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="text-center pt-3">
+                    <h1>Jedi Perks</h1>
+                    <ul>
+                        <li>
+                            <p>Exclusive Membership Card</p>
+                        </li>
+                        <li>
+                            <p>Access to Personalized Quizzes (Coming Soon)</p>
+                        </li>
+                        <li>
+                            <p>Community Forum (Coming Soon)</p>
+                        </li>
+                        <li>
+                            <p> Early Access to New Features</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="text-center pt-3">
+                    <h1>Treasure Box Items</h1>
+                    <ul>
+                        <li>
+                            <p>Lightsaber Keychain</p>
+                        </li>
+                         <li>
+                            <p>Lightsaber Pen</p>
+                        </li>
+                        
+                        <li>
+                            <p> Jedi emblem patch</p>
+                        </li>
+                        <li>
+                            <p>Galaxy-themed Poster</p>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Bootstrap JS (optional) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

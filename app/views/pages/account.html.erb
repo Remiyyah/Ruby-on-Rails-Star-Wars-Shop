@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music App</title>
+    <style>
+        /* Global styles */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #ae2896, #509bf5);
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+        }
+
+        .form-container {
+            flex-basis: calc(50% - 10px);
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color:black;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            color:black;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #6c757d;
+        }
+
+        .btn-primary {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .topbar .prev-next-buttons button {
+            color: #7a7a7a;
+            cursor: not-allowed;
+            width: 34px;
+            height: 34px;
+            border-radius: 100%;
+            font-size: 18px;
+            border: 0px;
+            background-color: #090909;
+            margin-right: 10px;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+
+            padding: 14px 30px;
+        }
+
+        .topbar .navbar {
+            display: flex;
+            align-items: center;
+        }
+
+        .topbar .navbar ul {
+            list-style: none;
+        }
+
+        .topbar .navbar ul li {
+            display: inline-block;
+            margin: 0px 8px;
+            width: 70px;
+        }
+
+        .topbar .navbar ul li a {
+            color: #b3b3b3;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .topbar .navbar ul li a:hover {
+            color: #ffffff;
+            font-size: 15px;
+        }
+
+        .topbar .navbar button {
+            background-color: #ffffff;
+            color: #000000;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 14px 30px;
+            border: 0px;
+            border-radius: 40px;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+
+        .topbar .navbar button:hover {
+            background-color: #f2f2f2;
+        }
+
+
+        .preview {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to right, #ae2896, black);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .preview h6 {
+            color: #ffffff;
+            text-transform: uppercase;
+            font-weight: 400;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .preview p {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .preview button {
+            background-color: #ffffff;
+            color: #000000;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 14px 30px;
+            border: 0px;
+            border-radius: 40px;
+            cursor: pointer;
+        }
+
+        .no-bullets {
+  list-style-type: none !important; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+}
+
+.no-bullets li {
+  margin-bottom: 20px !important; /* Add spacing between list items */
+  margin-right:30px !important;
+  display:block !important;
+}
+
+    </style>
+</head>
+<body>
+
+<div class="topbar">
+
+
+    <div class="navbar">
+        <ul class=no-bullets>
+            <li>
+        <%=link_to "Home",root_path%><br>
+        </li>
+        <li>
+            <a href="/carts"> Orders</a>
+        </li>
+        <li>
+            <a href="/favorite"> Favorited Products</a>
+        </li>
+        <li>
+            <a href="/users/edit">Change Password</a>
+        </li>
+
+
+        </ul>
+
+    </div>
+</div>
+
+<div class="container">
+    <!-- Newsletter subscription form -->
+    <div class="form-container">
+        <h2>Newsletter Subscription</h2>
+        <form id="newsletter-form">
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <button type="submit" class="btn-primary">Subscribe</button>
+        </form>
+    </div>
+
+    <!-- User settings form -->
+    <div class="form-container">
+        <h2>User Settings</h2>
+        <form id="settings-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="notification">Notification Preferences</label>
+                <select class="form-control" id="notification" name="notification">
+                    <option value="email">Email</option>
+                    <option value="sms">SMS</option>
+                    <option value="push">Push Notifications</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="newsletter" name="newsletter">
+                    <label class="form-check-label" for="newsletter">Subscribe to Newsletter</label>
+                </div>
+            </div>
+            <button type="submit" class="btn-primary">Save Changes</button>
+        </form>
+    </div>
+</div>
+
+<div class="preview">
+    <div class="text">
+        <h6>The Jedi Council Membership</h6>
+         <p>Join the ranks of the Jedi Council and unlock exclusive benefits that will enhance your Star Wars journey. Gain early access to new product launches, enjoy member-only discounts and MORE!</p>
+    </div>
+    <div class="button">
+
+       <%= button_to "Sign up free", membership_path,method: :get, class: "button" %>
+
+
+    </div>
+</div><br><br><br><br>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<html>
+<head>
+  <title>Book Hologram</title>
+  <style>
+    /* Custom CSS styles */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .card {
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .card-header {
+      background-color: #f8f9fa;
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1 class="mt-5">Book Hologram</h1>
+
+  <div class="card mt-3">
+    <div class="card-header">
+      <h2><%= @hologram.actor %></h2>
+    </div>
+    <div class="card-body">
+      <p><strong>Price:</strong> <%= number_to_currency(@hologram.price) %></p>
+      <p><strong>Description:</strong> <%= @hologram.description %></p>
+    </div>
+  </div>
+
+  <div class="card mt-3">
+    <div class="card-body">
+      <%= form_with url: create_booking_path(@hologram), method: :post do |form| %>
+        <%= form.hidden_field :hologram_id, value: @hologram.id %>
+
+        <div class="form-group">
+          <%= form.label :recipient_name, 'Recipient Name' %>
+          <%= form.text_field :recipient_name, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :recipient_request, 'Recipient Request' %>
+          <%= form.text_area :recipient_request, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :video_type, 'Video Type' %>
+          <%= form.select :video_type, ['Personalized Message', 'Birthday Greeting', 'Celebration Message'], {}, { class: "form-control" } %>
+        </div>
+
+        <%= form.submit 'Book Hologram', class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
