@@ -4,7 +4,25 @@ Welcome to my Star Wars eCommerce shop built with Ruby on Rails! This project pr
 
 Below is an overview of the features and components of the application:
 
-## Features
+## Features:
+
+
+- **Membership Feature:** Users can create accounts and log in to access additional features such as booking hologram sessions and leaving reviews.
+
+- **Booking Hologram Feature:** Users can book hologram sessions with their favorite Star Wars characters for virtual interactions.
+
+- **Cart Feature:** Users can add products to their shopping cart and proceed to checkout for purchase.
+
+- **Devise Gem for User Authentication:** User authentication is implemented using the Devise gem to handle user registration, login, and authentication.
+
+- **Review Functionality:** Users can leave reviews and ratings on products, providing valuable feedback to other users.
+
+- **Product Listing Page:** The application includes a product listing page where users can browse and search for Star Wars merchandise.
+
+- **Favoriting Product Feature:** Users can mark products as favorites for quick access and future reference.
+
+- **Pagination-Search Product-Category Filter on Item Listing Page Feature:** The product listing page includes pagination for easy navigation and a search filter to find specific products. Additionally, users can filter products by category to narrow down their search results.
+
 
 
 ## Components:
@@ -161,7 +179,26 @@ These gems enhance the functionality of the application by providing pre-built s
     - **jedi:** Displays the Jedi page.
     - **apprentice:** Displays the Apprentice page.
 </details>
----
+
+## Demo Images
+<details>
+  <summary>Show Images</summary>
+  <img width="1000" alt="Screenshot 2024-05-01 at 9 58 23 PM" src="https://github.com/Remiyyah/Shop/assets/116331106/f8b6d5aa-e552-45d6-8ba4-c0a76aa5d36c">
+  <img width="1000" alt="Screenshot 2024-05-01 at 9 58 51 PM" src="https://github.com/Remiyyah/Shop/assets/116331106/3ac88084-a026-49a6-9900-987209ba075a">
+  <img width="1440" alt="Screenshot 2024-05-01 at 10 03 34 PM" src="https://github.com/Remiyyah/Shop/assets/116331106/7c1bc0ff-28fa-4715-9eb8-512292844d53">
+  <img width="1389" alt="Screenshot 2024-05-01 at 10 04 18 PM" src="https://github.com/Remiyyah/Shop/assets/116331106/efb3dd39-ad33-42ee-b093-733c266e1266">
+  <img width="1440" alt="Screenshot 2024-05-01 at 10 05 39 PM" src="https://github.com/Remiyyah/Shop/assets/116331106/740e71c4-45b4-42f7-a761-208b6a36ff68">
+  <img width="1440" alt="Screenshot 2024-05-01 at 10 06 00 PM" src="https://github.com/Remiyyah/Shop/assets/116331106/8736e513-5792-4618-8b16-fff282f0b79d">
+  <img width="1424" alt="Screenshot 2024-05-01 at 10 06 33 PM" src="https://github.com/Remiyyah/Shop/assets/116331106/03c88e60-6f5d-40d0-a654-a0384767f874">
+  <img width="1440" alt="Screenshot 2024-05-01 at 10 02 29 PM" src="https://github.com/Remiyyah/Shop/assets/116331106/fc8f1fcd-0ff7-4c45-b9be-1032da5ce402">
+  <img width="1356" alt="Screenshot 2024-05-01 at 10 00 57 PM" src="https://github.com/Remiyyah/Shop/assets/116331106/e0fd3afc-ede9-41eb-9820-38a3d0c754a6">
+  <img width="1440" alt="Screenshot 2024-05-01 at 10 12 09 PM" src="https://github.com/Remiyyah/Shop/assets/116331106/73e10fc9-fae7-428f-8cf6-d490f3e8f45f">
+  <img width="1434" alt="Screenshot 2024-05-01 at 10 12 53 PM" src="https://github.com/Remiyyah/Shop/assets/116331106/980d382b-7f39-4fd5-848e-2fc8ceee412f">
+
+
+</details>
+
+
 
 ## Getting Started:
 
